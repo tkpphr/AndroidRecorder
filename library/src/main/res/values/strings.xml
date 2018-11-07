@@ -1,0 +1,13 @@
+<resources>
+    <string name="sdrc_recording">Recording</string>
+    <string name="sdrc_record_ready">Ready</string>
+    <string name="sdrc_record_finished">Finished Recording</string>
+    <string name="sdrc_no_sound_records">Record does not exist.</string>
+    <string name="sdrc_hint_enter_record_name">Enter a record name.</string>
+    <string name="sdrc_not_selected_record">Record is not selected.</string>
+    <string name="sdrc_record_limit">Time Limit</string>
+    <string name="sdrc_name_empty">Name is empty.</string>
+    <string name="sdrc_name_exists">This name already exists.\nEnter another name.</string>
+    <string name="sdrc_select">Select</string>
+    <string name="sdrc_create_new">Create New Record</string>
+</resources>

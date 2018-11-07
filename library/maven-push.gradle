@@ -1,0 +1,74 @@
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+
+def artifactName='recorder'
+def artifactVersion = android.defaultConfig.versionName
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId ANDROID_GROUP_ID
+            artifactId = artifactName
+            version = artifactVersion
+            artifact source: file("${project.buildDir}/outputs/aar/${project.name}-release.aar")
+        }
+    }
+    repositories {
+        maven {
+            url "file:${rootDir}/${project.name}-maven-repo"
+        }
+    }
+}
+
+
+configurations {
+    deployerJars
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    deployerJars "org.apache.maven.wagon:wagon-ssh:2.2"
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            configuration = configurations.deployerJars
+            repository(url: ANDROID_FEED_URL) {
+                authentication(userName: MYGET_USER_NAME, password: MYGET_ACCESS_TOKEN)
+                pom {
+                    groupId = ANDROID_GROUP_ID
+                    artifactId = artifactName
+                    version = artifactVersion
+
+                    project {
+                        name 'AndroidRecorder'
+                        description 'Recorder library for android.'
+                        url 'https://github.com/tkpphr/AndroidRecorder'
+                        licenses {
+                            license {
+                                name 'The Apache Software License, Version 2.0'
+                                url 'https://www.apache.org/licenses/LICENSE-2.0.txt'
+                                distribution 'repo'
+                            }
+                        }
+                        organization{
+                            name ORGANIZATION_NAME
+                        }
+                        developers {
+                            developer {
+                                id DEVELOPER_ID
+                                name DEVELOPER_NAME
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

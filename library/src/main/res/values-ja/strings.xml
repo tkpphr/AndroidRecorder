@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sdrc_recording">録音中</string>
+    <string name="sdrc_record_ready">録音準備完了</string>
+    <string name="sdrc_record_finished">録音終了</string>
+    <string name="sdrc_no_sound_records">録音ファイルがありません。</string>
+    <string name="sdrc_hint_enter_record_name">名前を入力してください。</string>
+    <string name="sdrc_not_selected_record">録音ファイルが選択されていません。</string>
+    <string name="sdrc_record_limit">録音時間制限</string>
+    <string name="sdrc_name_empty">名前が空です。</string>
+    <string name="sdrc_name_exists">この名前は既に存在しています。\n別の名前を入力してください。</string>
+    <string name="sdrc_select">選択</string>
+    <string name="sdrc_create_new">新規録音</string>
+</resources>
